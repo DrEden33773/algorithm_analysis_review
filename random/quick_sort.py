@@ -2,10 +2,9 @@ from random import randint
 
 
 def partition(s: list, beg: int, end: int):
-    last = end - 1
-    rand_p = randint(beg, last)
-    sep = beg - 1
-    s[rand_p], s[last] = s[last], s[rand_p]
+    last, sep = end - 1, beg - 1
+    temp_rand = randint(beg, last)
+    s[temp_rand], s[last] = s[last], s[temp_rand]
     for i in range(beg, end):
         if s[i] <= s[last]:
             sep += 1
